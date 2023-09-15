@@ -2,6 +2,7 @@ import { FormControlLabel, Switch } from "@mui/material";
 import { ChangeEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import TextInput from "./Form/TextInput";
+import MapInput from "./Form/MapInput";
 const PosForm = () => {
     const [latitude, setLatitude] = useState<number | null>(null);
     const [longitude, setLongitude] = useState<number | null>(null);
@@ -38,9 +39,9 @@ const PosForm = () => {
 
     return (
         <>
-            <FormControlLabel className="mt-5 text-white w-full flex justify-center" control={<Switch onChange={() => setMap(!map)} checked={Boolean(map)} />} label="Map" />
+            <FormControlLabel className="mt-5 text-white  flex justify-center ml-0" control={<Switch onChange={() => setMap(!map)} checked={Boolean(map)} />} label="Map" labelPlacement="top"/>
             {map ? (
-                <></>
+                <MapInput></MapInput>
             ) : (
                 <TextInput handleLatitudeChange={handleLatitudeChange} handleLongitudeChange={handleLongitudeChange} submit={submit}></TextInput>
             )}
