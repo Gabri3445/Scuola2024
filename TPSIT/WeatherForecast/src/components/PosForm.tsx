@@ -25,9 +25,9 @@ const PosForm = () => {
         <>
             <div className="mt-10 w-1/2 mr-auto ml-auto flex flex-col items-center">
                     <label htmlFor="lat" className="w-60 text-center text-white">Latitude:</label>
-                    <input type="number" onChange={handleLatitudeChange} className="w-60 rounded-md" id="lat"/>
+                    <input type="number" max={90} min={-90} step={0.01} onChange={handleLatitudeChange} className="w-60 rounded-md" id="lat"/>
                     <label htmlFor="lon" className="w-60 text-center text-white">Longitude:</label>
-                    <input type="number" onChange={handleLongitudeChange} className="w-60 rounded-md" id="lon"/>
+                    <input type="number" max={180} min={-180} step={0.01} onChange={handleLongitudeChange} className="w-60 rounded-md" id="lon"/>
 
                     <button onClick={submit} className="text-white bg-blue-700 w-40 h-10 mt-7 mr-auto ml-auto text-2xl rounded-md">Go!</button>
             </div>
