@@ -17,7 +17,7 @@ const PosForm = () => {
 
     const submit = () => {
         if(latitude && longitude) {
-            navigate(`/forecast?lat${latitude}&lon=${longitude}`)
+            navigate(`/forecast?lat=${latitude}&lon=${longitude}`)
         }
     }
 
