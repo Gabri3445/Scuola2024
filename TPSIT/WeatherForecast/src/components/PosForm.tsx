@@ -7,17 +7,29 @@ const PosForm = () => {
 
     const handleLatitudeChange = (e: ChangeEvent<HTMLInputElement>) => {
         const lat = parseInt(e.target.value);
+        if(lat > 90 || lat < -90) {
+            setLatitude(null);
+            return;
+        }
         setLatitude(lat);
     }
 
     const handleLongitudeChange = (e: ChangeEvent<HTMLInputElement>) => {
         const lon = parseInt(e.target.value);
+        if(lon > 180 || lon < -180) {
+            setLongitude(null);
+            return;
+        }
         setLongitude(lon);
     }
 
     const submit = () => {
         if(latitude && longitude) {
             navigate(`/forecast?lat=${latitude}&lon=${longitude}`)
+        }
+        else {
+            alert("Invalid input");
+            return;
         }
     }
 
