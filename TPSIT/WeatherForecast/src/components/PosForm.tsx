@@ -1,18 +1,18 @@
 import { ChangeEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
 const PosForm = () => {
-    const [latitude, setLatitude] = useState<Number | null>(null)
-    const [longitude, setLongitude] = useState<Number | null>(null)
+    let latitude: number | null = null;
+    let longitude: number | null = null;
     const navigate = useNavigate();
 
     const handleLatitudeChange = (e: ChangeEvent<HTMLInputElement>) => {
         const lat = parseInt(e.target.value);
-        setLatitude(lat);
+        latitude = lat;
     }
 
     const handleLongitudeChange = (e: ChangeEvent<HTMLInputElement>) => {
         const lon = parseInt(e.target.value);
-        setLongitude(lon);
+        longitude = lon;
     }
 
     const submit = () => {
