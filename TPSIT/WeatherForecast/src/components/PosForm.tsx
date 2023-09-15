@@ -6,7 +6,7 @@ import MapInput from "./Form/MapInput";
 const PosForm = () => {
     const [latitude, setLatitude] = useState<number | null>(null);
     const [longitude, setLongitude] = useState<number | null>(null);
-    const [map, setMap] = useState<boolean>();
+    const [map, setMap] = useState<boolean>(true);
     const navigate = useNavigate();
 
     const handleLatitudeChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -39,9 +39,9 @@ const PosForm = () => {
 
     return (
         <>
-            <FormControlLabel className="mt-5 text-white  flex justify-center ml-0" control={<Switch onChange={() => setMap(!map)} checked={Boolean(map)} />} label="Map" labelPlacement="top"/>
+            <FormControlLabel className="mt-5 text-white flex justify-center ml-0" control={<Switch onChange={() => setMap(!map)} checked={Boolean(map)} />} label="Map" labelPlacement="top"/>
             {map ? (
-                <MapInput></MapInput>
+                <MapInput submit={submit} setLatitude={setLatitude} setLongitude={setLongitude}></MapInput>
             ) : (
                 <TextInput handleLatitudeChange={handleLatitudeChange} handleLongitudeChange={handleLongitudeChange} submit={submit}></TextInput>
             )}
