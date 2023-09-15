@@ -1,9 +1,12 @@
 import Hero from "./components/Hero"
+import PosForm from "./components/PosForm"
 
 function App() {
   return (
     <>
-    <Hero></Hero>
+    <Hero>
+      <PosForm/>
+    </Hero>
     </>
   )
 }
