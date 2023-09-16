@@ -8,7 +8,7 @@ interface Props {
     submit: () => void;
 }
 
-const Location = ({ userLocation }) => {
+const Location = ({ userLocation }: any) => {
   const map = useMap();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const MapInput = ({setLatitude, setLongitude, submit}: Props) => {
   const [userLocation, setUserLocation] = useState([51.505, -0.09]);
   const [clickedLocation, setClickedLocation] = useState();
 
-  const handleMapClick = (e) => {
+  const handleMapClick = (e: any) => {
     setLatitude(e.latlng.lat);
     setLongitude(e.latlng.lng);
     setClickedLocation(e.latlng);
