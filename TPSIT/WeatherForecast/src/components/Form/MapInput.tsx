@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -66,7 +66,7 @@ const MapInput = ({setLatitude, setLongitude, submit}: Props) => {
   }, []);
 
   return (
-    <div className="h-full md:max-h-[512px] max-h-[300px] mb-16 ml-16 mr-16">
+    <div className="h-full lg:max-h-[512px] max-h-[60%] md:mb-16 md:ml-16 md:mr-16">
         <div className='text-center text-white text-2xl mb-3'>
             Click on the map to choose the location
         </div>
