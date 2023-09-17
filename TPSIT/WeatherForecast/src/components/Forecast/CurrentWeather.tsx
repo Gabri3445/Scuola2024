@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import SingleElement from "./SingleElement";
 
 interface Props {
     temperature: number;
     wmo: string;
-    apparentTemperature?: number;
-    wind?: number;
-    humidity?: number;
-    uv?: number;
+    apparentTemperature: number;
+    wind: number;
+    humidity: number;
+    uv: number;
     visibility?: number;
     pressure?: number;
 }
@@ -63,19 +64,26 @@ const CurrentWeather = (props: Props) => {
             case "99":
                 return "Thunderstorm with heavy hail"
         }
-        return "Nicolo"
+        return "Error"
+        
     }
 
 
         return (
             <>
                 <div className="text-white text-5xl px-5">
-                    Current Weather:
-                    <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4">
+                    <div className="mb-2">Current Weather:</div>
+                    <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4 pl-2 justify-center flex-wrap">
                         {props.temperature}°
-                        <div className="text-3xl flex items-end">
+                        <div className="text-3xl flex items-end pr-5">
                             {wmo}
                         </div>
+                        <SingleElement label="Feels Like:" value={props.apparentTemperature + "°"}></SingleElement>
+                        <SingleElement label="Wind:" value={props.wind + "km/h"}></SingleElement>
+                        <SingleElement label="Humidity:" value={props.humidity + "%"}></SingleElement>
+                        <SingleElement label="UV:" value={props.uv + ""}></SingleElement>
+                        <SingleElement label="Visibility:" value={props.visibility + "m"}></SingleElement>
+                        <SingleElement label="Pressure:" value={props.pressure + "hPa"}></SingleElement>
                     </div>
                 </div>
             </>
