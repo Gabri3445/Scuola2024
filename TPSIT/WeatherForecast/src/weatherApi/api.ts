@@ -1,6 +1,6 @@
 
 export const getForecastTemperature = async (latitude : number, longitude: number): Promise<WeatherData> => {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,precipitation_probability,weathercode,surface_pressure,visibility,windspeed_10m,uv_index,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&current_weather=true&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,weathercode,surface_pressure,visibility,windspeed_10m,uv_index,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&current_weather=true&timezone=auto`;
     const response = await fetch(url);
     const data: WeatherData = await response.json();
     return data;
@@ -18,6 +18,7 @@ interface CurrentWeather {
   interface HourlyUnits {
     time: string;
     temperature_2m: string;
+    relativehumidity_2m: string;
     apparent_temperature: string;
     precipitation_probability: string;
     weathercode: string;
@@ -31,6 +32,7 @@ interface CurrentWeather {
   interface HourlyData {
     time: string[];
     temperature_2m: number[];
+    relativehumidity_2m: number[];
     apparent_temperature: number[];
     precipitation_probability: number[];
     weathercode: number[];
