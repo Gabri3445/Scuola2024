@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { WeatherData, getForecastTemperature } from "../../weatherApi/api";
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
 interface Props {
     latitude: number;
@@ -18,13 +19,19 @@ const Weather = ({latitude, longitude}: Props) => {
         }
         getForecast()
         const date = new Date();
-        setHour(date.getHours())
+        const hours = date.getHours()
+        if (date.getMinutes() > 45) {
+            setHour(hours + 1)
+        }
+        else {
+            setHour(hours)
+        }
     }, [])
     
     if(forecast) {
         return (
             <div className="flex flex-col text-white md:justify-center items-center h-full">
-                <div className="h-5/6 w-5/6 bg-black/75 rounded-2xl">
+                <div className="h-5/6 w-5/6 bg-black/75 rounded-2xl flex flex-col">
                     <CurrentWeather temperature={forecast.current_weather.temperature} 
                     wmo={"" + forecast.current_weather.weathercode} 
                     apparentTemperature={forecast.hourly.apparent_temperature[hour]} 
@@ -33,7 +40,8 @@ const Weather = ({latitude, longitude}: Props) => {
                     uv={forecast.hourly.uv_index[hour]}
                     visibility={forecast.hourly.visibility[hour]}
                     pressure={forecast.hourly.surface_pressure[hour]}
-                    ></CurrentWeather>
+                    />
+                    <Forecast></Forecast>
                 </div>
             </div>
         )
