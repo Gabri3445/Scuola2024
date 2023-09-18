@@ -71,7 +71,7 @@ const CurrentWeather = (props: Props) => {
 
         return (
             <>
-                <div className="text-white text-5xl px-5">
+                <div className="text-white text-5xl px-5 h-auto">
                     <div className="mb-2">Current Weather:</div>
                     <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4 pl-2 justify-center flex-wrap">
                         {props.temperature}°
