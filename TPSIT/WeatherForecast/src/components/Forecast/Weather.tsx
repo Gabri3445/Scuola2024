@@ -41,7 +41,7 @@ const Weather = ({latitude, longitude}: Props) => {
                     visibility={forecast.hourly.visibility[hour]}
                     pressure={forecast.hourly.surface_pressure[hour]}
                     />
-                    <Forecast></Forecast>
+                    <Forecast DailyData={JSON.stringify(forecast.daily)} HourlyData={JSON.stringify(forecast.hourly)}></Forecast>
                 </div>
             </div>
         )
