@@ -78,12 +78,12 @@ const CurrentWeather = (props: Props) => {
                         <div className="text-3xl flex items-end pr-5">
                             {wmo}
                         </div>
-                        <SingleElement label="Feels Like:" value={props.apparentTemperature + "°"}></SingleElement>
-                        <SingleElement label="Wind:" value={props.wind + "km/h"}></SingleElement>
-                        <SingleElement label="Humidity:" value={props.humidity + "%"}></SingleElement>
-                        <SingleElement label="UV:" value={props.uv + ""}></SingleElement>
-                        <SingleElement label="Visibility:" value={props.visibility + "m"}></SingleElement>
-                        <SingleElement label="Pressure:" value={props.pressure + "hPa"}></SingleElement>
+                        <SingleElement label="Feels Like:" value={props.apparentTemperature + "°"}/>
+                        <SingleElement label="Wind:" value={props.wind + "km/h"}/>
+                        <SingleElement label="Humidity:" value={props.humidity + "%"}/>
+                        <SingleElement label="UV:" value={props.uv + ""}/>
+                        <SingleElement label="Visibility:" value={props.visibility + "m"}/>
+                        <SingleElement label="Pressure:" value={props.pressure + "hPa"}/>
                     </div>
                 </div>
             </>
