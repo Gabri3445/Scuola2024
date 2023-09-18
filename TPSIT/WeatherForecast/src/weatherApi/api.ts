@@ -75,6 +75,6 @@ interface CurrentWeather {
   }
   
 
-export type {WeatherData};
+export type {WeatherData, HourlyData, DailyData};
 
 //https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,apparent_temperature,precipitation_probability,weathercode,surface_pressure,visibility,windspeed_10m,uv_index,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&current_weather=true&timezone=auto
