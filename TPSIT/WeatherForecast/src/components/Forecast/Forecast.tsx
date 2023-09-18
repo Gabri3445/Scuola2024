@@ -25,7 +25,7 @@ const Forecast = (props: Props) => {
                 <div className="text-white text-5xl px-5 flex-1 flex flex-col">
                     <div className="mb-2">Forecast:</div>
                     <div className="flex border-2 text-4xl border-white rounded-lg pb-4 pl-2 h-full flex-1 overflow-auto mb-4">
-                        <ForecastSingleElement></ForecastSingleElement>
+                        <ForecastSingleElement date={new Date(DailyData?.time[0])}></ForecastSingleElement>
                     </div>
                 </div>
             </>
