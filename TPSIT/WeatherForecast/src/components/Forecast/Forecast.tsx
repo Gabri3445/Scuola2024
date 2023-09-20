@@ -25,7 +25,7 @@ const Forecast = (props: Props) => {
                 <div className="text-white text-5xl px-5 flex-1 flex flex-col">
                     <div className="mb-2">Forecast:</div>
                     <div className="flex border-2 text-4xl border-white rounded-lg pb-4 pl-2 h-full flex-1 overflow-auto mb-4">
-                        <ForecastSingleElement date={new Date(DailyData?.time[0])}></ForecastSingleElement>
+                        <ForecastSingleElement date={new Date(DailyData.time[1])} temperature={[DailyData.temperature_2m_min[1], DailyData.temperature_2m_max[1]]} precipitation={DailyData.precipitation_probability_max[0]}></ForecastSingleElement>
                     </div>
                 </div>
             </>
