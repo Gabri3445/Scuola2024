@@ -4,8 +4,8 @@
 import { components, hooks, utils } from '@generouted/react-router/client'
 
 export type Path =
-  | `/`
-  | `/forecast`
+  | `/weather-forecast`
+  | `/weather-forecast/forecast`
 
 export type Params = {
   
