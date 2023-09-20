@@ -8,6 +8,7 @@ export default {
     extend: {
       screens: {
         '3xl': `1691px`,
+        'overflow': '1901px'
       }
     },
   },
