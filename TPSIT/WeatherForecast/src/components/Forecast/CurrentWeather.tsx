@@ -20,11 +20,13 @@ const CurrentWeather = (props: Props) => {
         setWmo(decodeWmo(props.wmo))
     }, [])
 
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 
     return (
         <>
             <div className="text-white text-5xl px-5 h-1/4">
-                <div className="mb-2">Current Weather:</div>
+                <div className="mb-2">Current Weather: {new Date().getDate()} - {daysOfWeek[new Date().getDay()]}</div>
                 <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4 pl-2 justify-center flex-wrap">
                     {props.temperature}°
                     <div className="text-3xl flex items-end pr-5">
