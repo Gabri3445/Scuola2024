@@ -19,7 +19,7 @@ const Forecast = (props: Props) => {
         convertToJson();
     }, [])
 
-    if (HourlyData !== null && DailyData !== null) {
+    if (DailyData != undefined && HourlyData != undefined) {
         return (
             <>
                 <div className="text-white text-5xl px-5 flex-1 flex flex-col">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { LatLng, LatLngExpression, LeafletMouseEvent } from 'leaflet';
 
 interface Props {
     setLatitude: (lat: number) => void;
@@ -42,10 +43,10 @@ const MapClickHandler = ({ onMapClick }: any) => {
 };
 
 const MapInput = ({setLatitude, setLongitude, submit}: Props) => {
-  const [userLocation, setUserLocation] = useState([51.505, -0.09]);
-  const [clickedLocation, setClickedLocation] = useState();
+  const [userLocation, setUserLocation] = useState<LatLngExpression>([51.505, -0.09]);
+  const [clickedLocation, setClickedLocation] = useState<LatLng>();
 
-  const handleMapClick = (e: any) => {
+  const handleMapClick = (e: LeafletMouseEvent) => {
     setLatitude(e.latlng.lat);
     setLongitude(e.latlng.lng);
     setClickedLocation(e.latlng);
