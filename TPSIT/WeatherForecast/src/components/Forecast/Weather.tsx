@@ -30,8 +30,8 @@ const Weather = ({latitude, longitude}: Props) => {
     
     if(forecast) {
         return (
-            <div className="flex flex-col text-white md:justify-center items-center h-full">
-                <div className="h-5/6 w-5/6 bg-black/75 rounded-2xl flex flex-col">
+            <div className="flex flex-col text-white md:justify-center items-center h-screen">
+                <div className="h-5/6 w-5/6 bg-black/75 rounded-2xl">
                     <CurrentWeather temperature={forecast.current_weather.temperature} 
                     wmo={"" + forecast.current_weather.weathercode} 
                     apparentTemperature={forecast.hourly.apparent_temperature[hour]} 

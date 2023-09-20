@@ -14,7 +14,7 @@ const forecast = () => {
 
     return (
         <>
-        <div className="w-full h-screen flex md:pt-0 bg-no-repeat flex-col bg-cover bg-[url('https://images.pexels.com/photos/557782/pexels-photo-557782.jpeg')]">
+        <div className="w-full h-full flex md:pt-0 bg-no-repeat flex-col bg-cover bg-[url('https://images.pexels.com/photos/557782/pexels-photo-557782.jpeg')]">
             <h1 className="text-white font-bold text-xl md:text-7xl text-center">Weather Forecast</h1>
             <Weather latitude={latitude} longitude={longitude} />
         </div>

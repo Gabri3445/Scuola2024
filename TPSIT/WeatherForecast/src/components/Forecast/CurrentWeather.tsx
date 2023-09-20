@@ -21,25 +21,25 @@ const CurrentWeather = (props: Props) => {
     }, [])
 
 
-        return (
-            <>
-                <div className="text-white text-5xl px-5 h-auto">
-                    <div className="mb-2">Current Weather:</div>
-                    <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4 pl-2 justify-center flex-wrap">
-                        {props.temperature}°
-                        <div className="text-3xl flex items-end pr-5">
-                            {wmo}
-                        </div>
-                        <SingleElement border={true} label="Feels Like:" value={props.apparentTemperature + "°"}/>
-                        <SingleElement border={true} label="Wind:" value={props.wind + "km/h"}/>
-                        <SingleElement border={true} label="Humidity:" value={props.humidity + "%"}/>
-                        <SingleElement border={true} label="UV:" value={props.uv + ""}/>
-                        <SingleElement border={true} label="Visibility:" value={props.visibility + "m"}/>
-                        <SingleElement border={true} label="Pressure:" value={props.pressure + "hPa"}/>
+    return (
+        <>
+            <div className="text-white text-5xl px-5 h-1/4">
+                <div className="mb-2">Current Weather:</div>
+                <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4 pl-2 justify-center flex-wrap">
+                    {props.temperature}°
+                    <div className="text-3xl flex items-end pr-5">
+                        {wmo}
                     </div>
+                    <SingleElement border={true} label="Feels Like:" value={props.apparentTemperature + "°"} />
+                    <SingleElement border={true} label="Wind:" value={props.wind + "km/h"} />
+                    <SingleElement border={true} label="Humidity:" value={props.humidity + "%"} />
+                    <SingleElement border={true} label="UV:" value={props.uv + ""} />
+                    <SingleElement border={true} label="Visibility:" value={props.visibility + "m"} />
+                    <SingleElement border={true} label="Pressure:" value={props.pressure + "hPa"} />
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
+}
 
 export default CurrentWeather
