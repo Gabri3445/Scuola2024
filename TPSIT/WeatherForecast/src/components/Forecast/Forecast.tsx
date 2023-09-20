@@ -29,7 +29,7 @@ const Forecast = (props: Props) => {
             dailyDataCopy.precipitation_probability_max.shift();
             dailyDataCopy.weathercode.shift();
             setDailyData(dailyDataCopy);
-            //do the same for hourly data but for 24 hours
+            //TODO: do the same for hourly data but for 24 hours
         }
       }, [DailyData]);
       
