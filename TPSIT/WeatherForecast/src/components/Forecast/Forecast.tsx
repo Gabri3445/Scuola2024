@@ -56,11 +56,3 @@ const Forecast = (props: Props) => {
 }
 
 export default Forecast;
-/*
-    interface DailyData {
-    time: string[];
-    weathercode: number[];
-    temperature_2m_max: number[];
-    temperature_2m_min: number[];
-    precipitation_probability_max: number[];
-  }*/
