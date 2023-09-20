@@ -13,7 +13,7 @@ const ForecastSingleElement = ({ date, temperature, precipitation }: Props) => {
     return (
 
         <>
-            <div className="border-2 h-24 border-white rounded-lg mt-4 pb-2 flex flex-row justify-center items-center w-full cursor-pointer min-h-[24px]">
+            <div className="border-2 h-44 border-white rounded-lg mt-4 pb-2 flex flex-row justify-center items-center w-full cursor-pointer">
                 <div className="mr-5">Icon here</div>
                 <div className="mr-5">
                     {date.getDate()} - {daysOfWeek[date.getDay()]}
