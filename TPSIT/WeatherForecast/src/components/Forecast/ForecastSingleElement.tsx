@@ -8,7 +8,7 @@ interface Props {
     temperature: number[];
     precipitation: number;
     wmo: string
-    onClick: () => void
+    onClick?: () => void
 }
 
 const ForecastSingleElement = ({ date, temperature, precipitation, wmo, onClick }: Props) => {
