@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { DailyData, HourlyData } from "../../weatherApi/api";
 import ForecastSingleElement from "./ForecastSingleElement";
 import decodeWmo from "../../utils/wmo";
+import { Modal } from "@mui/material";
+import ForecastModal from "./ForecastModal";
 
 interface Props {
     HourlyData : string;
@@ -11,7 +13,8 @@ interface Props {
 const Forecast = (props: Props) => {
     const [HourlyData, setHourlyData] = useState<HourlyData | null>();
     const [DailyData, setDailyData] = useState<DailyData | null>();
-    const [_, setIndex] = useState(-1)
+    const [index, setIndex] = useState(-1)
+    const [open, setOpen] = useState(false);
     const forecastLength = 7; //Change if needed
 
     useEffect(() => {
@@ -32,12 +35,29 @@ const Forecast = (props: Props) => {
             dailyDataCopy.weathercode.shift();
             setDailyData(dailyDataCopy);
             //TODO: do the same for hourly data but for 24 hours
+            const hourlyDataCopy = JSON.parse(JSON.stringify(HourlyData))
+            for (let i = 0; i < 24; i++) {
+                hourlyDataCopy.time.shift();
+                hourlyDataCopy.temperature_2m.shift();
+                hourlyDataCopy.relativehumidity_2m.shift();
+                hourlyDataCopy.apparent_temperature.shift();
+                hourlyDataCopy.precipitation_probability.shift();
+                hourlyDataCopy.weathercode.shift();
+                hourlyDataCopy.surface_pressure.shift();
+                hourlyDataCopy.visibility.shift();
+                hourlyDataCopy.windspeed_10m.shift();
+                hourlyDataCopy.uv_index.shift();
+                hourlyDataCopy.is_day.shift();
+            }
+            setHourlyData(hourlyDataCopy);
         }
       }, [DailyData]);
 
       const handleClick = (index: number) => {
         setIndex(index)
+        setOpen(true);
       }
+      const handleClose = () => setOpen(false);
       
 
     if (DailyData != undefined && HourlyData != undefined) {
@@ -49,6 +69,9 @@ const Forecast = (props: Props) => {
                         {DailyData.time.map((_, index) => (
                             <ForecastSingleElement wmo={decodeWmo(DailyData.weathercode[index] + "")} key={index} onClick={() => handleClick(index)} date={new Date(DailyData.time[index])} precipitation={DailyData.precipitation_probability_max[index]} temperature={[DailyData.temperature_2m_min[index], DailyData.temperature_2m_max[index]]}></ForecastSingleElement>
                         ))}
+                        <Modal open={open} onClose={handleClose}>
+                            <ForecastModal></ForecastModal>
+                        </Modal>
                     </div>
                 </div>
             </>
