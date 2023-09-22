@@ -67,10 +67,18 @@ const Forecast = (props: Props) => {
                     <div className="mb-2">{forecastLength} Day Forecast:</div>
                     <div className="flex flex-col border-2 text-4xl h-full border-white rounded-lg pb-4 pl-2 flex-grow overflow-auto mb-4">
                         {DailyData.time.map((_, index) => (
-                            <ForecastSingleElement wmo={decodeWmo(DailyData.weathercode[index] + "")} key={index} onClick={() => handleClick(index)} date={new Date(DailyData.time[index])} precipitation={DailyData.precipitation_probability_max[index]} temperature={[DailyData.temperature_2m_min[index], DailyData.temperature_2m_max[index]]}></ForecastSingleElement>
+                            <ForecastSingleElement wmo={decodeWmo(DailyData.weathercode[index] + "")} 
+                            key={index} 
+                            onClick={() => handleClick(index)} 
+                            date={new Date(DailyData.time[index])} 
+                            precipitation={DailyData.precipitation_probability_max[index]} 
+                            temperature={[DailyData.temperature_2m_min[index], DailyData.temperature_2m_max[index]]}></ForecastSingleElement>
                         ))}
                         <Modal open={open} onClose={handleClose}>
-                            <ForecastModal></ForecastModal>
+                            <ForecastModal wmo={decodeWmo(DailyData.weathercode[index] + "")}
+                            date={new Date(DailyData.time[index])} 
+                            precipitation={DailyData.precipitation_probability_max[index]} 
+                            temperature={[DailyData.temperature_2m_min[index], DailyData.temperature_2m_max[index]]}></ForecastModal>
                         </Modal>
                     </div>
                 </div>
