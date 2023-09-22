@@ -16,7 +16,6 @@ const ForecastSingleElement = ({ date, temperature, precipitation, wmo, onClick 
     const [icon, setIcon] = useState<ReactElement>()
 
     useEffect(() => {
-        console.log(wmo)
         switch (wmo) {
             case "Clear sky":
                 setIcon(<WiDaySunny />)
