@@ -9,8 +9,8 @@ interface Props {
     wind: number;
     humidity: number;
     uv: number;
-    visibility?: number;
-    pressure?: number;
+    visibility: number;
+    pressure: number;
 }
 
 const CurrentWeather = (props: Props) => {
@@ -25,7 +25,7 @@ const CurrentWeather = (props: Props) => {
 
     return (
         <>
-            <div className="text-white text-5xl px-5 h-1/4">
+            <div className="text-white text-5xl px-5 h-1/4 mb-2">
                 <div className="mb-2">Current Weather: {new Date().getDate()} - {daysOfWeek[new Date().getDay()]}</div>
                 <div className="text-9xl flex border-2 border-white rounded-lg content-center pb-4 pl-2 justify-center flex-wrap">
                     {props.temperature}°
