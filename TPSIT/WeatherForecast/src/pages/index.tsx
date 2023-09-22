@@ -1,5 +1,5 @@
-import Hero from "../../components/Hero"
-import PosForm from "../../components/PosForm"
+import Hero from "../components/Hero"
+import PosForm from "../components/PosForm"
 
 const index = () => {
     return (

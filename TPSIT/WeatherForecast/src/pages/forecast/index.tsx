@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import Weather from "../../../components/Forecast/Weather";
+import Weather from "../../components/Forecast/Weather";
 
 const forecast = () => {
    function useQuery() {
