@@ -8,32 +8,35 @@ interface Props {
     temperature: number[];
     precipitation: number;
     wmo: string
-    hourlyData: string
+    hourlyData: string,
+    index: number
 }
 
-const ForecastModal = ({ date, temperature, precipitation, wmo, hourlyData }: Props) => {
+const ForecastModal = ({ date, temperature, precipitation, wmo, hourlyData, index }: Props) => {
 
     const [HourlyData, setHourlyData] = useState<HourlyData>();
 
     useEffect(() => {
         async function convertToObject() {
             const hourly: HourlyData = await JSON.parse(hourlyData);
-            hourly.time = hourly.time.slice(0, 24);
-            hourly.temperature_2m = hourly.temperature_2m.slice(0, 24);
-            hourly.relativehumidity_2m = hourly.relativehumidity_2m.slice(0, 24);
-            hourly.apparent_temperature = hourly.apparent_temperature.slice(0, 24);
-            hourly.precipitation_probability = hourly.precipitation_probability.slice(0, 24);
-            hourly.weathercode = hourly.weathercode.slice(0, 24);
-            hourly.surface_pressure = hourly.surface_pressure.slice(0, 24);
-            hourly.visibility = hourly.visibility.slice(0, 24);
-            hourly.windspeed_10m = hourly.windspeed_10m.slice(0, 24);
-            hourly.uv_index = hourly.uv_index.slice(0, 24);
-            hourly.is_day = hourly.is_day.slice(0, 24);
+            const startingHour = index * 24;
+            const endingHour = startingHour + 24;
+            hourly.time = hourly.time.slice(startingHour, endingHour);
+            hourly.temperature_2m = hourly.temperature_2m.slice(startingHour, endingHour);
+            hourly.relativehumidity_2m = hourly.relativehumidity_2m.slice(startingHour, endingHour);
+            hourly.apparent_temperature = hourly.apparent_temperature.slice(startingHour, endingHour);
+            hourly.precipitation_probability = hourly.precipitation_probability.slice(startingHour, endingHour);
+            hourly.weathercode = hourly.weathercode.slice(startingHour, endingHour);
+            hourly.surface_pressure = hourly.surface_pressure.slice(startingHour, endingHour);
+            hourly.visibility = hourly.visibility.slice(startingHour, endingHour);
+            hourly.windspeed_10m = hourly.windspeed_10m.slice(startingHour, endingHour);
+            hourly.uv_index = hourly.uv_index.slice(startingHour, endingHour);
+            hourly.is_day = hourly.is_day.slice(startingHour, endingHour);
             setHourlyData(hourly);
         }
         convertToObject();
     }, [])
-    
+
     if (HourlyData !== undefined && HourlyData.time.length == 24) {
         return (
             

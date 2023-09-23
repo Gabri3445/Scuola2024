@@ -79,7 +79,8 @@ const Forecast = (props: Props) => {
                             date={new Date(DailyData.time[index])} 
                             precipitation={DailyData.precipitation_probability_max[index]} 
                             temperature={[DailyData.temperature_2m_min[index], DailyData.temperature_2m_max[index]]}
-                            hourlyData={JSON.stringify(HourlyData)}></ForecastModal>
+                            hourlyData={JSON.stringify(HourlyData)}
+                            index={index}></ForecastModal>
                         </Modal>
                     </div>
                 </div>
