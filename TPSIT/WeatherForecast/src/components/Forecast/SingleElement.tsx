@@ -14,7 +14,7 @@ const SingleElement = ({ label, value, border }: Props) => {
   return (
     <div className={containerClass}>
       <div className="text-center w-full">{label}</div>
-      <div className="text-center w-full flex-1 flex items-center justify-center text-5xl">{value}</div>
+      <div className="text-center w-full flex-1 flex items-center justify-center text-4xl">{value}</div>
     </div>
   );
 };
