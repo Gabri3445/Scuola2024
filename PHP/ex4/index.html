@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <form action="./index.php" method="post">
+    <div>
+      <label for="brand">Brand: </label>
+      <input type="text" required name="brand" id="brand">
+    </div>
+    <div>
+      <label for="model">Model: </label>
+      <input type="text" required name="model" id="model">
+    </div>
+    <div>
+      <label for="hdmi">Number of HDMI Ports: </label>
+      <input type="number" min="1" required name="hdmi" id="hdmi">
+    </div>
+    <div>
+      <label for="refresh">Refresh Rate (hz): </label>
+      <input type="number" required min="1" name="refresh" id="refresh">
+    </div>
+    <div>
+      <label for="resolution">Resolution: </label>
+      <select name="resolution" required id="resolution">
+        <option value="">Choose</option>
+        <option value="hd-ready">HD Ready</option>
+        <option value="fhd">Full HD</option>
+        <option value="uhd">Ultra HD</option>
+        <option value="4k">4K</option>
+      </select>
+    </div>
+    <br>
+    <input type="submit">
+  </form>
+</body>
+</html>
