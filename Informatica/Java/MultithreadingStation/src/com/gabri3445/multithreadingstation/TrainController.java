@@ -28,7 +28,6 @@ public class TrainController extends Thread {
 
             if (waitingNumber == 0) {
                 crossingState = CrossingState.ARRIVING;
-                //wait until the state is waiting
                 while (crossingState != CrossingState.WAITING) {
                     try {
                         Thread.sleep(1000);
