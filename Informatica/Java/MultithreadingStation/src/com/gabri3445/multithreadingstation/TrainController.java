@@ -17,6 +17,7 @@ public class TrainController extends Thread {
         this.crossingState = crossingState;
     }
 
+    /** @noinspection BusyWait, InfiniteLoopStatement */
     @Override
     public void run() {
         int waitingNumber;
@@ -24,7 +25,12 @@ public class TrainController extends Thread {
         trainCrossing.start();
         Random random = new Random();
         while (true) {
-            waitingNumber = random.nextInt(5000000);
+            waitingNumber = random.nextInt(50);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
             if (waitingNumber == 0) {
                 crossingState = CrossingState.ARRIVING;

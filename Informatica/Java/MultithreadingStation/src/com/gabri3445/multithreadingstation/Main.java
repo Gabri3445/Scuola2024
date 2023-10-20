@@ -3,7 +3,7 @@ package com.gabri3445.multithreadingstation;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter q to quit");
         TrainController trainController = new TrainController();

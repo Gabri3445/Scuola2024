@@ -1,12 +1,13 @@
 package com.gabri3445.multithreadingstation;
 
 public class TrainCrossing extends Thread {
-    TrainController trainController;
+    private final TrainController trainController;
 
     public TrainCrossing(TrainController trainController) {
         this.trainController = trainController;
     }
 
+    /** @noinspection BusyWait, InfiniteLoopStatement */
     @Override
     public void run() {
         //wait until the state is set to arriving
