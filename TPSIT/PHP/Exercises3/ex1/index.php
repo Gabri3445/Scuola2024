@@ -1,6 +1,6 @@
 <form method="post" action=<?php echo $_SERVER["PHP_SELF"] ?> >
 <label for="cents">Insert the amount in cents</label>
-<input type="number" id="cents" name="cents">
+<input required type="number" id="cents" name="cents">
 <input type="submit">
 </form>
 

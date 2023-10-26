@@ -1,15 +1,15 @@
 <form method="post" action=<?php echo $_SERVER["PHP_SELF"] ?>>
 <div>
 <label for="a">A:</label>
-<input type="number" id="a" name="a">
+<input required type="number" id="a" name="a">
 <div>
 <div>
 <label for="B">B:</label>
-<input type="number" id="B" name="b">
+<input required v type="number" id="B" name="b">
 <div>
 <div>
 <label for="C">C:</label>
-<input type="number" id="C" name="c">
+<input required type="number" id="C" name="c">
 <div>
 <input type="submit"/> <br>
 </form>
@@ -26,6 +26,9 @@ function calcSecDegEq($a, $b, $c): string {
     }
     $x1 = (-$b + sqrt($delta)) / (2* $a);
     $x2 = (-$b - sqrt($delta)) / (2* $a);
+    if ($x1 == $x2) {
+        return "The solutions are the same:". number_format
+    }
     return "Results are: ". number_format($x1, 3) . ", " . number_format($x2, 3);
 }
 

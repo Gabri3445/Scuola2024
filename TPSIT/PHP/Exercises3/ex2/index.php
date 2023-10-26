@@ -1,11 +1,11 @@
 <form method="post" action=<?php echo $_SERVER["PHP_SELF"] ?>>
 <div>
     <label for="login">Login:</label>
-    <input type="text" id="login" name="login"/>
+    <input required type="text" id="login" name="login"/>
 </div>
 <div>
     <label for="pwd">Password:</label>
-    <input type="text" id="pwd" name="pwd"/>
+    <input required type="text" id="pwd" name="pwd"/>
 </div>
 <input type="submit">
 </form>
