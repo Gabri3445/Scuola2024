@@ -16,13 +16,13 @@ public class User extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(new Random().nextInt(1004, 10005));
+                Thread.sleep(new Random().nextInt(1000, 10001));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            int operazione = new Random().nextInt(2);
+            int operation = new Random().nextInt(2);
             System.out.print("User: " + id + " ");
-            if (operazione == 0) {
+            if (operation == 0) {
                 ATM.deposit(new Random().nextInt(105));
             } else {
                 ATM.withdraw(new Random().nextInt(105));

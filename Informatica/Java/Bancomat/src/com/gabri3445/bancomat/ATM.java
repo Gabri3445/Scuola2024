@@ -1,21 +1,23 @@
 package com.gabri3445.bancomat;
 
 public class ATM {
-    private float balance = 104;
+    private final Account account;
+
+    public ATM() {
+        this.account = new Account(5);
+    }
 
     public synchronized void deposit(float amount) {
-        balance += amount;
-        System.out.println("You've deposited:" + String.format("%.2f", amount) + "\n" +
-                "Now your balance is:" + String.format("%.2f", balance));
+        account.balance += amount;
+        System.out.println("You've deposited:" + String.format("%.2f", amount) + "\n" + "Now your balance is:" + String.format("%.2f", account.balance));
     }
 
     public synchronized void withdraw(float amount) {
-        if (balance >= amount) {
-            balance -= amount;
-            System.out.println("You've withdrawn:" + String.format("%.2f", amount) + "\n" +
-                    "Now the balance is:" + String.format("%.2f", balance));
+        if (account.balance >= amount) {
+            System.out.println("You've withdrawn:" + String.format("%.2f", amount) + "\n" + "Now your balance is:" + String.format("%.2f", account.balance));
+            account.balance -= amount;
         } else {
-            System.out.println("You don't have enough balance, withdraw failed:" + String.format("%.2f", amount));
+            System.out.println("Withdraw failed: You tried to withdraw " + String.format("%.2f", amount) + " but only have " + String.format("%.2f", account.balance));
         }
     }
 }

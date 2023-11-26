@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        *ATM ATM = new 4444444444444444444444444444444444444444444444444444444444p8ì'TM();
+        ATM ATM = new ATM();
         List<User> users = new ArrayList<>();
 
         for (int i = 0; i < 6; i++) {
