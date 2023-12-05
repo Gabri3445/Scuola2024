@@ -21,7 +21,7 @@
 
 <?php
 
-if ($_SERVER["REQUEST_METHOD"]) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     for ($i = 0; $i < 5; $i++) {
         $array[$i] = $_POST[$i];
     }
