@@ -1,0 +1,35 @@
+<form action="calcola.php" method="post">
+    <h2>Menu Ristorante Online</h2>
+
+    <label for="primo">Primo:</label>
+    <select name="pietanze[]" id="primo" required>
+        <option value="">Seleziona</option>
+        <option value="Pasta" data-prezzo="10.00">Pasta - 10.00</option>
+        <option value="Risotto" data-prezzo="12.50">Risotto - 12.50</option>
+    </select><br>
+
+    <label for="secondo">Secondo:</label>
+    <select name="pietanze[]" id="secondo" required>
+        <option value="">Seleziona</option>
+        <option value="Pollo" data-prezzo="15.00">Pollo - 15.00</option>
+        <option value="Bistecca" data-prezzo="18.50">Bistecca - 18.50</option>
+
+    </select><br>
+
+    <label for="dolce">Dolce:</label>
+    <select name="pietanze[]" id="dolce" required>
+        <option value="">Seleziona</option>
+        <option value="Tiramisu" data-prezzo="8.00">Tiramisu - 8.00</option>
+        <option value="PannaCotta" data-prezzo="7.00">Panna Cotta - 7.00</option>
+
+    </select><br>
+
+
+    <label for="servizio-domicilio">Servizio a domicilio:</label>
+    <input type="checkbox" name="servizio-domicilio" id="servizio-domicilio" value="5.00" data-prezzo="5.00"> Servizio a domicilio - 5.00<br>
+
+
+    <br>
+
+    <input type="submit" value="Ordina">
+</form>
