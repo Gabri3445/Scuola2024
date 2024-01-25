@@ -58,11 +58,9 @@ function checkUser($users, $username) {
 }
 
 function checkUserPass($users, $username, $password) {
-    foreach ($users as $user) {
-        if ($user["username"] == $username && $user["password"] == $password) {
-            return $user;
-        }
-    }
-    return null;
-}
+        if (isset($users[$username]) && $users[$username]["password"] == $password) {
+                return $users[$username];
+                    }
+                        return null;
+                        }
 
