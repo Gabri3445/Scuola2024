@@ -1,4 +1,4 @@
-drop database movie;
+drop database if exists movie;
 
 create database movie;
 
