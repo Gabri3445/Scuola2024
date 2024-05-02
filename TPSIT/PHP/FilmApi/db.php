@@ -16,7 +16,7 @@ function getMovies($title): ?array
     }
     if (isset($title)) {
         $query =
-"select m.title,
+            "select m.title,
        group_concat(distinct g2.name separator ', ') as genres,
        m.synopsys,
        group_concat(distinct p.name, COALESCE(CONCAT(' ', p.middleName, ' '), ' '), p.surname separator
@@ -38,7 +38,8 @@ group by m.id;";
     }
 }
 
-function getActors($name): ?array {
+function getActors($name): ?array
+{
     global $conn;
     if ($conn->connect_error) {
         return null;
@@ -51,6 +52,28 @@ from person p
 left join interprets i on p.id = i.actor
 left join movie m on i.movie = m.id
 where category = 'actor'
+  and name like '%$name%'
+group by p.id;";
+        return $conn->query($query)->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return [];
+    }
+}
+
+function getDirectors($name): ?array
+{
+    global $conn;
+    if ($conn->connect_error) {
+        return null;
+    }
+    if (isset($name)) {
+        $query =
+            "select p.name, p.middleName, p.surname, p.bDate as birthday,
+       group_concat(distinct m.title separator ', ') as movies
+from person p
+         left join interprets i on p.id = i.actor
+         left join movie m on i.movie = m.id
+where category = 'director'
   and name like '%$name%'
 group by p.id;";
         return $conn->query($query)->fetch_all(MYSQLI_ASSOC);
