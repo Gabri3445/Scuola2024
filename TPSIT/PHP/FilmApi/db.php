@@ -30,8 +30,29 @@ from movie m
          left join person p on i.actor = p.id
          left join directs d on m.id = d.movie
          left join person p2 on d.director = p2.id
-where m.title like '%pacific%'
+where m.title like '%$title%'
 group by m.id;";
+        return $conn->query($query)->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return [];
+    }
+}
+
+function getActors($name): ?array {
+    global $conn;
+    if ($conn->connect_error) {
+        return null;
+    }
+    if (isset($name)) {
+        $query =
+            "select p.name, p.middleName, p.surname, p.bDate as birthday,
+       group_concat(distinct m.title separator ', ') as movies
+from person p
+left join interprets i on p.id = i.actor
+left join movie m on i.movie = m.id
+where category = 'actor'
+  and name like '%$name%'
+group by p.id;";
         return $conn->query($query)->fetch_all(MYSQLI_ASSOC);
     } else {
         return [];
