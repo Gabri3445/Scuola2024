@@ -20,9 +20,18 @@ create table person (
     category enum('actor', 'director'),
     id int auto_increment primary key,
     name varchar(50),
-    middleName varchar(50) default null,
+    middle_name varchar(50) default null,
     surname varchar(50),
     bDate date
+);
+
+create table user (
+    id int auto_increment primary key,
+    name varchar(50),
+    surname varchar(50),
+    email varchar(50),
+    password varchar(255),
+    registration_date datetime default current_timestamp
 );
 
 create table interprets (
@@ -48,3 +57,11 @@ create table genres (
     foreign key (movie) references movie(id),
     foreign key (genre) references genre(id)
 );
+
+create table watched_movies (
+    user int,
+    movie int,
+    primary key (user, movie),
+    foreign key (user) references user(id),
+    foreign key (movie) references movie(id)
+)
