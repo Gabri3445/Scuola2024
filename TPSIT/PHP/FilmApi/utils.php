@@ -2,15 +2,13 @@
 
 class Vector
 {
-    public Point $start;
     public Point $end;
     public float $length;
 
-    function __construct(int $startX, int $startY, int $endX, int $endY, float $length)
+    function __construct(int $endX, int $endY)
     {
-        $this->start = new Point($startX, $startY);
         $this->end = new Point($endX, $endY);
-        $this->length = $length;
+        $this->length = sqrt(pow($endX, 2) + pow($endY, 2));
     }
 }
 
@@ -29,7 +27,10 @@ class Point
 function cosine_similarity(Vector $a, Vector $b): float
 {
     // (a * b) / ||a|| * ||b||
-    $topHalf = ($a->start->x * $b->start->y) + ($a->end->x * $b->end->y);
+    $topHalf = ($a->end->x * $b->end->x) + ($a->end->y * $b->end->y);
     $bottomHalf = $a->length * $b->length;
+    if ($bottomHalf == 0) {
+        return 0;
+    }
     return $topHalf / $bottomHalf;
 }
