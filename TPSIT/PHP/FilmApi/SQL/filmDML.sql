@@ -15,26 +15,26 @@ Principal photography began in November 2016 in Queensland, Australia.[6] Pacifi
         2018);
 
 
-insert into person (category, name, middleName, surname, bDate)
+insert into person (category, name, middle_name, surname, bDate)
 VALUES ('director', 'Guillermo', 'del', 'Toro', '1964-10-9'),
        ('actor', 'Idris', null, 'Elba', '1972-9-6');
 
-INSERT INTO movie.person (category, name, middleName, surname, bDate)
+INSERT INTO movie.person (category, name, middle_name, surname, bDate)
 VALUES ('director', 'Steven', 'S.', 'DeKnight', '1965-10-28');
 
-INSERT INTO movie.person (category, name, middleName, surname, bDate)
+INSERT INTO movie.person (category, name, middle_name, surname, bDate)
 VALUES ('actor', 'Charlie', 'Peckham', 'Day', '1976-02-09');
 
-INSERT INTO movie.person (category, name, middleName, surname, bDate)
+INSERT INTO movie.person (category, name, middle_name, surname, bDate)
 VALUES ('actor', 'John', 'Adedayo Bamidele', 'Adegboyega', '1992-03-17');
 
 INSERT INTO movie.genre (name, id)
 VALUES ('monster', 3);
 
-INSERT INTO movie.person (category, name, middleName, surname, bDate)
+INSERT INTO movie.person (category, name, middle_name, surname, bDate)
 VALUES ('actor', 'Ronald', 'N.', 'Perlman', '1950-04-13');
 
-INSERT INTO movie.person (category, name, middleName, surname, bDate)
+INSERT INTO movie.person (category, name, middle_name, surname, bDate)
 VALUES ('actor', 'Burn', 'Hugh', 'Gorman', '1974-09-01');
 
 INSERT INTO movie.interprets (actor, movie)

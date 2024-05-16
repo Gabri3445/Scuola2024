@@ -1,6 +1,6 @@
 <?php
 
-$hostname = "172.17.0.2";
+$hostname = "172.17.0.4";
 
 $conn = mysqli_connect($hostname, "root", "password", "movie");
 
@@ -19,9 +19,9 @@ function getMovies($title): ?array
             "select m.title,
        group_concat(distinct g2.name separator ', ') as genres,
        m.synopsys,
-       group_concat(distinct p.name, COALESCE(CONCAT(' ', p.middleName, ' '), ' '), p.surname separator
+       group_concat(distinct p.name, COALESCE(CONCAT(' ', p.middle_name, ' '), ' '), p.surname separator
                     ', ')                   as actors,
-       group_concat(distinct p2.name, COALESCE(CONCAT(' ', p2.middleName, ' '), ' '), p2.surname separator
+       group_concat(distinct p2.name, COALESCE(CONCAT(' ', p2.middle_name, ' '), ' '), p2.surname separator
                     ', ')                   as directors
 from movie m
          left join genres g on m.id = g.movie
@@ -46,7 +46,7 @@ function getActors($name): ?array
     }
     if (isset($name)) {
         $query =
-            "select p.name, p.middleName, p.surname, p.bDate as birthday,
+            "select p.name, p.middle_name, p.surname, p.bDate as birthday,
        group_concat(distinct m.title separator ', ') as movies
 from person p
 left join interprets i on p.id = i.actor
@@ -68,7 +68,7 @@ function getDirectors($name): ?array
     }
     if (isset($name)) {
         $query =
-            "select p.name, p.middleName, p.surname, p.bDate as birthday,
+            "select p.name, p.middle_name, p.surname, p.bDate as birthday,
        group_concat(distinct m.title separator ', ') as movies
 from person p
          left join interprets i on p.id = i.actor
