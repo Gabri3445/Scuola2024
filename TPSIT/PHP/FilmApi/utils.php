@@ -34,3 +34,51 @@ function cosine_similarity(Vector $a, Vector $b): float
     }
     return $topHalf / $bottomHalf;
 }
+
+
+
+class User {
+    public string $username;
+    /** @var string[] $watched_movies */
+    public array $watched_movies;
+
+    /**
+     * @param string $username
+     * @var string[] $watched_movies
+     */
+    function __construct(string $username, array $watched_movies)
+    {
+        $this->username = $username;
+        $this->watched_movies = $watched_movies;
+    }
+}
+/** @var User[] $users   */
+/** @var string[] $movies */
+function build_matrix(array $users, array $movies) {
+    // 
+    $matrix = null;
+    foreach ($movies as $movie) {
+        /** @var User $user */
+        foreach ($users as $user) {
+            $has_watched = false;
+            if (in_array($movie, $user->watched_movies)) {
+               $has_watched = true;
+            }
+            $matrix[$movie][$user->username] = $has_watched;
+        }
+    }
+    return $matrix;
+}
+
+$users = [
+    new User("UserA", ["Test1"]),
+    new User("UserB", ["Test1", "Test2"])
+];
+
+$movies = ["Test1", "Test2", "Test3"];
+
+$matrix_test = build_matrix($users, $movies);
+
+echo "test";
+
+echo "test";
